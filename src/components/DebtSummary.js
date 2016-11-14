@@ -3,6 +3,12 @@ import React, { Component } from 'react';
 import PaymentsTable from './PaymentsTable.js';
 
 class DebtSummary extends Component {
+	constructor() {
+		super();
+		this.state = {
+			showMore: true 
+		};
+	}
 	render() {
 		return (
 			<div>
@@ -10,8 +16,8 @@ class DebtSummary extends Component {
 				<p>
 					<small>You owe {this.props.debt.state.debt} &euro;, Interest: {this.props.debt.state.apr}%, Payment: {this.props.debt.state.payment} &euro;</small>
 				</p>
-
-				<PaymentsTable ref="payments" schema={this.props.debt.schema} />
+				<p><a href="#">Details</a></p>
+				{this.state.showMore ? <PaymentsTable ref="payments" schema={this.props.debt.schema} /> : null }
 			</div>
 		);
 	}
