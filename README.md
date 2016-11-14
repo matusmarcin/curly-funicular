@@ -12,7 +12,7 @@ Note: **This is very much work in progress.**
 * Learn more about ReactJS and modern frontend tools
 * Explore JS testing
 * Play with cool CI tools
-* Find out when I'm goint to be debt free
+* Find out when I'm going to be debt free
 
 # Installation
 
