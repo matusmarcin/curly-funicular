@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 
-import PaymentsTableRow from './PaymentsTableRow.js';
-
 class PaymentsTable extends Component {
-	render() {
-		var rows = [];
-		this.props.schema.forEach(function(row) {
-			rows.push(<PaymentsTableRow row={row} />);
+	renderRows() {
+		return this.props.schema.map((row) => {
+			return (
+				<tr key={row.period}>
+					<td>{row.period}.</td>
+					<td>{row.remaining.toFixed(0) + ' €'}</td>
+					<td>{row.accumulatedInterest.toFixed(0) + ' €'}</td>
+				</tr>
+			)
 		});
+	}
+	render() {
 		return (
 			<table className="pure-table">
 				<thead>
@@ -17,7 +22,7 @@ class PaymentsTable extends Component {
 						<th>Accumulated Interest</th>
 					</tr>
 				</thead>
-				<tbody>{rows}</tbody>
+				<tbody>{this.renderRows()}</tbody>
 			</table>
 		);
 	}
